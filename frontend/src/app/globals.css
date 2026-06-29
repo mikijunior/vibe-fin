@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SPEC §2: dark, data-dense trading terminal aesthetic. */
+html,
+body {
+  background-color: #0d1117;
+  color: #e6edf3;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Price-flash animation classes (SPEC §10): applied for ~500ms then removed. */
+.flash-up {
+  animation: flashUp 500ms ease-out;
+}
+.flash-down {
+  animation: flashDown 500ms ease-out;
+}
+
+@keyframes flashUp {
+  0% {
+    background-color: rgba(31, 138, 58, 0.45);
+  }
+  100% {
+    background-color: rgba(31, 138, 58, 0);
+  }
+}
+
+@keyframes flashDown {
+  0% {
+    background-color: rgba(182, 35, 36, 0.45);
+  }
+  100% {
+    background-color: rgba(182, 35, 36, 0);
+  }
+}
+
+/* Utility: tabular figures so price columns don't reflow on update. */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
